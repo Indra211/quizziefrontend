@@ -353,6 +353,7 @@ export const CreateQuizModal = ({ open, onClose }) => {
                       <input
                         className="quiz-question-input"
                         value={item?.question_name}
+                        placeholder="Enter Question Name"
                         onChange={(e) => handleQuestionName(index, e)}
                       />
                     </div>

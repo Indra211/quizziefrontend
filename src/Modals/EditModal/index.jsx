@@ -174,6 +174,7 @@ export const EditModal = ({ open, setOpen, id, setId, metaData }) => {
             <input
               className="quiz-question-input"
               value={questions?.[idx]?.question_name}
+              placeholder="Enter Question Name"
               onChange={(e) => handleQuestionName(idx, e)}
             />
           </div>
