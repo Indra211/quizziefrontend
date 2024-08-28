@@ -30,7 +30,7 @@ const Analytics = () => {
   return (
     <div className="analytics-container">
       <h1 className="analytics-head">Quiz Analysis</h1>
-      {loading ? (
+      {loading && quizs?.length <= 0 ? (
         <p className="no-data-text"> Loading...</p>
       ) : quizs?.length > 0 ? (
         <Table quizzes={quizs} />

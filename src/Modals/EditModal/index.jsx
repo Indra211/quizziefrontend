@@ -10,6 +10,7 @@ export const EditModal = ({ open, setOpen, id, setId, metaData }) => {
   const [idx, setIndex] = useState(0);
   const [selectQuizType, setSelectedQuizType] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errTxt, setErrTxt] = useState("");
   const [questions, setQuestions] = useState([
     {
       question_name: "",
@@ -86,6 +87,32 @@ export const EditModal = ({ open, setOpen, id, setId, metaData }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const checkQuestionName = questions?.some(
+      (item) => item?.question_name === ""
+    );
+    if (checkQuestionName) {
+      return setErrTxt("Please enter Question Name");
+    }
+    const chkOptionsText = questions?.some((item) =>
+      item?.options?.some((ele) => ele?.text === "")
+    );
+
+    const chkOptionsImage = questions?.some((item) =>
+      item?.options?.some((ele) => ele?.image === "")
+    );
+
+    const chkOptionsTextImage = questions?.some((item) =>
+      item?.options?.some((ele) => ele?.image === "" || ele?.text === "")
+    );
+
+    if (selectQuizType === "Text" && chkOptionsText) {
+      return setErrTxt("Please enter options text for all options.");
+    } else if (selectQuizType === "Image URL" && chkOptionsImage) {
+      return setErrTxt("Please enter image URL for all options.");
+    } else if (selectQuizType === "Text & Image URL" && chkOptionsTextImage) {
+      return setErrTxt("Please enter both text and image URL for all options.");
+    }
+
     if (loading) {
       return;
     }
@@ -103,11 +130,10 @@ export const EditModal = ({ open, setOpen, id, setId, metaData }) => {
       console.error(error);
     } finally {
       setLoading(false);
+      setId("");
       handleClose();
     }
   };
-  console.log(selectQuizType);
-
   return (
     <Modal open={open} onClose={setOpen}>
       <form className="quiz-questions-containers" onSubmit={handleSubmit}>
@@ -148,7 +174,7 @@ export const EditModal = ({ open, setOpen, id, setId, metaData }) => {
             <input
               className="quiz-question-input"
               value={questions?.[idx]?.question_name}
-              onChange={(e) => handleQuestionName(index, e)}
+              onChange={(e) => handleQuestionName(idx, e)}
             />
           </div>
           <div
@@ -282,7 +308,7 @@ export const EditModal = ({ open, setOpen, id, setId, metaData }) => {
             )}
           </div>
         </div>
-
+        {errTxt && <p style={{ color: "red" }}>{errTxt}</p>}
         <div className="quiz-btn-container" style={{ marginLeft: "2rem" }}>
           <button className="quiz-btn-cancel" onClick={handleClose}>
             Cancel

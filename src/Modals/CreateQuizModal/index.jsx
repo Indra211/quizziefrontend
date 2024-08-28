@@ -53,17 +53,18 @@ export const CreateQuizModal = ({ open, onClose }) => {
   };
   const [errTxt, setErrTxt] = useState("");
   const handleAddQUestions = () => {
-    const checkQuestionName = questions?.some(
-      (item) => item?.question_name === ""
-    );
     const checkCorrectOption = questions?.some(
       (item) => item?.correctOption === ""
     );
-    if (checkQuestionName) {
-      return setErrTxt("Please enter Question Name");
-    }
+
     if (quizData?.type === "Q & A" && checkCorrectOption) {
       return setErrTxt("Please select correct option");
+    }
+    const checkQuestionName = questions?.some(
+      (item) => item?.question_name === ""
+    );
+    if (checkQuestionName) {
+      return setErrTxt("Please enter Question Name");
     }
     const chkOptionsText = questions?.some((item) =>
       item?.options?.some((ele) => ele?.text === "")
@@ -74,7 +75,7 @@ export const CreateQuizModal = ({ open, onClose }) => {
     );
 
     const chkOptionsTextImage = questions?.some((item) =>
-      item?.options?.some((ele) => ele?.image === "" && ele?.text === "")
+      item?.options?.some((ele) => ele?.image === "" || ele?.text === "")
     );
 
     if (selectQuizType === "Text" && chkOptionsText) {
@@ -207,7 +208,7 @@ export const CreateQuizModal = ({ open, onClose }) => {
     );
 
     const chkOptionsTextImage = questions?.some((item) =>
-      item?.options?.some((ele) => ele?.image === "" && ele?.text === "")
+      item?.options?.some((ele) => ele?.image === "" || ele?.text === "")
     );
 
     if (selectQuizType === "Text" && chkOptionsText) {

@@ -82,7 +82,10 @@ export const QuestionWiseDetail = () => {
                 {quizData?.type === "Poll Type" &&
                   item?.options?.map((opt, optIndex) => {
                     return (
-                      <div className="question-count-box question-count-poll-type-box">
+                      <div
+                        key={optIndex}
+                        className="question-count-box question-count-poll-type-box"
+                      >
                         <p style={{ fontWeight: "600", fontSize: "1.1rem" }}>
                           {handleImpressionCount(opt?.selection_count)}
                         </p>
