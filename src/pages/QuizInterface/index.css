@@ -1,0 +1,64 @@
+.interface-container {
+  background: #041325;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.interface-box {
+  background: white;
+  width: 80vw;
+  height: 80vh;
+  border-radius: 0.5rem;
+}
+.interface-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  margin-bottom: 2rem;
+}
+.interface-option {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+.interface-option-text {
+  padding: 1rem 3rem;
+  background-color: #f0f0f0;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.interface-option-imageText {
+  padding: 0.5rem 0.5rem;
+}
+
+.interface-submit {
+  border: none;
+  padding: 0.5rem 4rem;
+  border-radius: 0.5rem;
+  background: #60b84b;
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 680px) {
+  .interface-box {
+    width: 100vw;
+    height: 100vh;
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .interface-option {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin: 1rem;
+  }
+}

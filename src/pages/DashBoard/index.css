@@ -1,0 +1,71 @@
+.dashboard-container {
+  padding: 6vw 8vw 0 8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.count-container {
+  min-width: 15vw;
+  text-align: center;
+  background-color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.2rem 0rem;
+  border-radius: 1rem;
+}
+
+.count-num-text {
+  font-size: 2.4rem;
+  margin-right: 8px;
+}
+
+.count-down-text {
+  display: block;
+  margin-top: -8px;
+}
+
+.trending-quiz {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.trending-quiz-box {
+  background: white;
+  padding-right: 3rem;
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.trending-quiz-img-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.trending-text {
+  white-space: normal;
+  word-wrap: break-word;
+  width: 90%;
+  overflow-wrap: break-word;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.trending-quiz-img {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  right: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ff5d01;
+}
+.trending-time-text {
+  font-weight: bolder;
+  font-size: 0.8rem;
+  color: #60b84b;
+}

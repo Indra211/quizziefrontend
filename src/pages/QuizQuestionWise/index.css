@@ -1,0 +1,37 @@
+.question-count-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+}
+.question-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 6rem;
+  gap: 2rem;
+}
+
+.question-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.padding-container {
+  padding: 1rem 0 0 0;
+}
+
+.question-head-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem 0 6rem;
+}
+
+.question-count-poll-type-box {
+  gap: 12px;
+  background: white;
+  flex-direction: row;
+  padding: 1rem 2rem;
+}
