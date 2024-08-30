@@ -89,7 +89,30 @@ export const QuestionWiseDetail = () => {
                         <p style={{ fontWeight: "600", fontSize: "1.1rem" }}>
                           {handleImpressionCount(opt?.selection_count)}
                         </p>
-                        <h6>option {optIndex + 1}</h6>
+                        {opt?.text && !opt?.image && <h6>{opt?.text}</h6>}
+                        {!opt?.text && opt?.image && (
+                          <img
+                            src={opt?.image}
+                            style={{
+                              height: "60px",
+                              width: "100px",
+                              borderRadius: "2px",
+                            }}
+                          />
+                        )}
+                        {opt?.text && opt?.image && (
+                          <>
+                            <h6>{opt?.text}</h6>
+                            <img
+                              src={opt?.image}
+                              style={{
+                                height: "60px",
+                                width: "100px",
+                                borderRadius: "2px",
+                              }}
+                            />
+                          </>
+                        )}
                       </div>
                     );
                   })}
